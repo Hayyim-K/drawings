@@ -13,6 +13,8 @@
 		6FC4F5752A6577BF0026C60B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FC4F5732A6577BF0026C60B /* Main.storyboard */; };
 		6FC4F5772A6577C00026C60B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FC4F5762A6577C00026C60B /* Assets.xcassets */; };
 		6FC4F57A2A6577C00026C60B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FC4F5782A6577C00026C60B /* LaunchScreen.storyboard */; };
+		6FC4F5822A65AAA40026C60B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC4F5812A65AAA40026C60B /* SettingsViewController.swift */; };
+		6FC4F5842A682F210026C60B /* PencilKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC4F5832A682F210026C60B /* PencilKitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		6FC4F5762A6577C00026C60B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6FC4F5792A6577C00026C60B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6FC4F57B2A6577C00026C60B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FC4F5812A65AAA40026C60B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		6FC4F5832A682F210026C60B /* PencilKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				6FC4F56D2A6577BF0026C60B /* AppDelegate.swift */,
 				6FC4F56F2A6577BF0026C60B /* SceneDelegate.swift */,
 				6FC4F5712A6577BF0026C60B /* ViewController.swift */,
+				6FC4F5812A65AAA40026C60B /* SettingsViewController.swift */,
+				6FC4F5832A682F210026C60B /* PencilKitViewController.swift */,
 				6FC4F5732A6577BF0026C60B /* Main.storyboard */,
 				6FC4F5762A6577C00026C60B /* Assets.xcassets */,
 				6FC4F5782A6577C00026C60B /* LaunchScreen.storyboard */,
@@ -138,9 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FC4F5842A682F210026C60B /* PencilKitViewController.swift in Sources */,
 				6FC4F5722A6577BF0026C60B /* ViewController.swift in Sources */,
 				6FC4F56E2A6577BF0026C60B /* AppDelegate.swift in Sources */,
 				6FC4F5702A6577BF0026C60B /* SceneDelegate.swift in Sources */,
+				6FC4F5822A65AAA40026C60B /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,11 +298,15 @@
 				DEVELOPMENT_TEAM = BH26MDT64T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = drawings/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Drawings;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.graphics-design";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -318,11 +330,15 @@
 				DEVELOPMENT_TEAM = BH26MDT64T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = drawings/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Drawings;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.graphics-design";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
