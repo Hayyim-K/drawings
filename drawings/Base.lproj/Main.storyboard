@@ -256,9 +256,19 @@
                                     <action selector="saveDrawingToCameraRoll:" destination="oGv-fc-3Ia" id="S8I-dG-ocM"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem image="square.and.arrow.down" catalog="system" id="2gU-Yr-FHk">
+                                <connections>
+                                    <action selector="saveDrawingToCameraRoll:" destination="Ihi-8d-uIP" id="zwM-LW-0qg"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="square.and.arrow.up" catalog="system" id="AWX-vZ-qHi">
                                 <connections>
                                     <action selector="shareDrawing:" destination="oGv-fc-3Ia" id="EN6-BQ-T63"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="arrow.uturn.backward" catalog="system" id="cjF-XH-dMz">
+                                <connections>
+                                    <action selector="undo:" destination="Ihi-8d-uIP" id="STA-O9-hZX"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -580,11 +590,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.uturn.backward" catalog="system" width="128" height="113"/>
         <image name="delete.left" catalog="system" width="128" height="102"/>
         <image name="eraser.fill" catalog="system" width="128" height="119"/>
         <image name="gear" catalog="system" width="128" height="122"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="pencil.tip" catalog="system" width="99" height="128"/>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

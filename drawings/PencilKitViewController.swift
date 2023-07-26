@@ -10,7 +10,7 @@ import PencilKit
 import Photos
 
 class PencilKitViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
-    
+
     @IBOutlet weak var canvasView: PKCanvasView!
     
     var toolPicker: PKToolPicker!
@@ -54,10 +54,12 @@ class PencilKitViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
     @IBAction func saveDrawingToCameraRoll(_ sender: Any) {
         let image = prepareImage()
         if let image = image {
+            // added "Privacy - Photo Library Usage Description" row to the info.plist to access to the camera
             PHPhotoLibrary.shared().performChanges {
                 PHAssetChangeRequest.creationRequestForAsset(from: image)
             }
         }
     }
 }
+
 
