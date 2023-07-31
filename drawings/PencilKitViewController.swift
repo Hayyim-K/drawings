@@ -16,6 +16,19 @@ class PencilKitViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
     var toolPicker: PKToolPicker!
     var drawing = PKDrawing()
     
+    private var textField: UITextField?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let size = canvasView.bounds.size
+        let att = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 50.0)]
+        let image = UIGraphicsImageRenderer(size: size, format: UIGraphicsImageRendererFormat()).image { rendererContext in
+            "HELLO!!!".draw(in: canvasView.bounds, withAttributes: att)
+        }
+        canvasView.addSubview(UIImageView(image: image))
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -44,6 +57,25 @@ class PencilKitViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
         return image
     }
     
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+    
+    @IBAction func inputText(_ sender: Any) {
+        showTextSettings()
+        
+//        textField?.delegate = self
+//        textField = UITextField(frame: CGRect(x: canvasView.bounds.width / 2, y: canvasView.bounds.height / 2, width: canvasView.bounds.width * 0.8, height: canvasView.bounds.height * 0.08))
+//
+//        guard let textField = textField else { return }
+//        textField.center = canvasView.center
+//        textField.backgroundColor = .black
+//        textField.textColor = .white
+//        textField.placeholder = "HELLO..."
+//        canvasView.addSubview(textField)
+    }
+    
     @IBAction func shareDrawing(_ sender: Any) {
         guard let image = prepareImage() else { return }
         let activity = UIActivityViewController(activityItems: [image],
@@ -59,6 +91,30 @@ class PencilKitViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
                 PHAssetChangeRequest.creationRequestForAsset(from: image)
             }
         }
+    }
+}
+
+extension PencilKitViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension PencilKitViewController {
+    private func showTextSettings() {
+        let textSetVC = self.storyboard?.instantiateViewController(withIdentifier: "TextSettingsViewController") as! TextSettingsViewController
+//        textSetVC.delegate = self
+        textSetVC.modalPresentationStyle = .overCurrentContext
+        // следующие три строки кажется никак не влияют на итог... разобраться для чего они
+        textSetVC.providesPresentationContextTransitionStyle = true
+        textSetVC.definesPresentationContext = true
+        textSetVC.modalTransitionStyle = .crossDissolve
+        present(textSetVC, animated: true,  completion: nil)
     }
 }
 

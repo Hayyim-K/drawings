@@ -105,6 +105,7 @@ class ViewController: UIViewController {
                        width: tempImageView.frame.size.width,
                        height: tempImageView.frame.size.height)
         )
+        
         // 2
         context.move(to: point)
         context.addLine(to: toPoint)

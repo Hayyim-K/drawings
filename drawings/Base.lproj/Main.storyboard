@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -266,6 +267,11 @@
                                     <action selector="shareDrawing:" destination="oGv-fc-3Ia" id="EN6-BQ-T63"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem image="textformat.size.smaller.he" catalog="system" id="aRg-RP-Pnu">
+                                <connections>
+                                    <action selector="inputText:" destination="oGv-fc-3Ia" id="7Ky-aX-SSP"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="arrow.uturn.backward" catalog="system" id="cjF-XH-dMz">
                                 <connections>
                                     <action selector="undo:" destination="Ihi-8d-uIP" id="STA-O9-hZX"/>
@@ -280,6 +286,184 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ihi-8d-uIP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="114" y="725"/>
+        </scene>
+        <!--Text Settings View Controller-->
+        <scene sceneID="zvp-lC-a6B">
+            <objects>
+                <viewController storyboardIdentifier="TextSettingsViewController" modalPresentationStyle="fullScreen" keyboardType="off" id="wYD-9T-dJX" customClass="TextSettingsViewController" customModule="drawings" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AhI-qt-5bw">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDV-rI-RHs">
+                                <rect key="frame" x="0.0" y="671" width="430" height="261"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8pt-Bc-52I">
+                                        <rect key="frame" x="16" y="24" width="398" height="221"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TEXT" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gTH-48-MJf">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="39"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="wYD-9T-dJX" id="YJv-d8-jPa"/>
+                                                </connections>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TiF-2B-76d">
+                                                <rect key="frame" x="0.0" y="63" width="398" height="39.333333333333343"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cc6-7U-t1S">
+                                                        <rect key="frame" x="0.0" y="0.0" width="29.666666666666668" height="39.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aGk-KE-5VN">
+                                                        <rect key="frame" x="35.666666666666657" y="0.0" width="326.66666666666674" height="40.333333333333336"/>
+                                                        <connections>
+                                                            <action selector="colorChanged:" destination="DHf-If-Ejn" eventType="valueChanged" id="Ur8-U1-u4Z"/>
+                                                            <action selector="sliderHasTouched:" destination="wYD-9T-dJX" eventType="valueChanged" id="lov-7C-Yas"/>
+                                                        </connections>
+                                                    </slider>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myX-XV-Qgu">
+                                                        <rect key="frame" x="368.33333333333331" y="0.0" width="29.666666666666686" height="39.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="myX-XV-Qgu" firstAttribute="width" secondItem="cc6-7U-t1S" secondAttribute="width" id="uMF-aB-cLo"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="vxZ-h0-Bui">
+                                                <rect key="frame" x="0.0" y="126.33333333333337" width="398" height="94.666666666666686"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ong-MP-9eb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="106" height="94.666666666666671"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="capsule" titleAlignment="center">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="Choose">
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="Font">
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="100"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="fontChoosing:" destination="wYD-9T-dJX" eventType="touchUpInside" id="5Np-20-EFS"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dhN-IY-M6W">
+                                                        <rect key="frame" x="146" y="0.0" width="106" height="94.666666666666671"/>
+                                                        <menu key="menu" title="BIU" id="CWr-Ht-pvc">
+                                                            <children>
+                                                                <command title="Bold" id="Ya4-P5-cY0"/>
+                                                                <command title="Italics" id="nD5-1W-CgO"/>
+                                                                <command title="Underline" id="xf3-3H-TkO"/>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="capsule">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="B">
+                                                                    <attributes>
+                                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <font key="NSFont" size="12" name="Helvetica-Bold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="I">
+                                                                    <attributes>
+                                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <font key="NSFont" size="12" name="Helvetica-Oblique"/>
+                                                                        <font key="NSOriginalFont" size="12" name="Helvetica-Oblique"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="U">
+                                                                    <attributes>
+                                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        <integer key="NSUnderline" value="1"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                    <colorWell contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7tG-5w-ylf">
+                                                        <rect key="frame" x="292" y="0.0" width="106" height="94.666666666666671"/>
+                                                    </colorWell>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="TiF-2B-76d" firstAttribute="height" secondItem="gTH-48-MJf" secondAttribute="height" id="rYe-iK-bLZ"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="7tG-5w-ylf" firstAttribute="width" secondItem="PDV-rI-RHs" secondAttribute="width" multiplier="0.246512" id="2Bo-PV-tZb"/>
+                                    <constraint firstAttribute="bottom" secondItem="8pt-Bc-52I" secondAttribute="bottom" constant="16" id="9JF-lC-Xet"/>
+                                    <constraint firstItem="8pt-Bc-52I" firstAttribute="top" secondItem="PDV-rI-RHs" secondAttribute="top" constant="24" id="GaD-pI-ZKH"/>
+                                    <constraint firstItem="aGk-KE-5VN" firstAttribute="width" secondItem="PDV-rI-RHs" secondAttribute="width" multiplier="0.75" id="Vbp-Hn-3DK"/>
+                                    <constraint firstItem="gTH-48-MJf" firstAttribute="height" secondItem="PDV-rI-RHs" secondAttribute="height" multiplier="0.15" id="eC2-jc-3hd"/>
+                                    <constraint firstItem="8pt-Bc-52I" firstAttribute="leading" secondItem="PDV-rI-RHs" secondAttribute="leading" constant="16" id="ed8-Se-zEt"/>
+                                    <constraint firstAttribute="trailing" secondItem="8pt-Bc-52I" secondAttribute="trailing" constant="16" id="rDP-MU-A8W"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="u4s-qk-rgn"/>
+                        <keyboardLayoutGuide key="keyboard" id="ZXB-oy-Fnl"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.29982408940397354" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PDV-rI-RHs" firstAttribute="width" secondItem="AhI-qt-5bw" secondAttribute="width" id="Jy1-eV-baR"/>
+                            <constraint firstItem="PDV-rI-RHs" firstAttribute="trailing" secondItem="AhI-qt-5bw" secondAttribute="trailing" id="Szs-El-eY4"/>
+                            <constraint firstItem="PDV-rI-RHs" firstAttribute="leading" secondItem="AhI-qt-5bw" secondAttribute="leading" id="aoJ-RD-OTK"/>
+                            <constraint firstItem="PDV-rI-RHs" firstAttribute="height" secondItem="AhI-qt-5bw" secondAttribute="height" multiplier="0.280043" id="c5W-wo-TYF"/>
+                            <constraint firstItem="PDV-rI-RHs" firstAttribute="centerX" secondItem="AhI-qt-5bw" secondAttribute="centerX" id="k6r-H2-Xhh"/>
+                            <constraint firstItem="PDV-rI-RHs" firstAttribute="bottom" secondItem="ZXB-oy-Fnl" secondAttribute="bottom" id="w8V-Dp-74h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainView" destination="PDV-rI-RHs" id="R91-3v-HKR"/>
+                        <outlet property="textField" destination="gTH-48-MJf" id="zbf-M9-vyf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyk-CR-MIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.74418604651157" y="724.89270386266094"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Xf3-GW-cel">
@@ -598,6 +782,7 @@
         <image name="pencil.tip" catalog="system" width="99" height="128"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="textformat.size.smaller.he" catalog="system" width="128" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
